@@ -1,9 +1,9 @@
 Name: openssh-askpass-qt
-Version:	0.2
-Release:	%mkrel 2
-Summary:	Qt version of ssh auth agent for keychain
-License:	GPL
-Group: System/
+Version: 0.2
+Release: %mkrel 2
+Summary: Qt version of ssh auth agent for keychain
+License: GPL
+Group: Graphical desktop/KDE
 BuildRequires: libqt-devel
 URL: http://www.mandriva.com
 Source: %name-%version.tar.bz2
