@@ -1,6 +1,6 @@
 Name: openssh-askpass-qt
 Version:	0.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Qt version of ssh auth agent for keychain
 License:	GPL
 Group: System/
