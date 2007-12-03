@@ -1,12 +1,13 @@
 Name: openssh-askpass-qt
 Version: 0.2
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: QT passphrase dialog for OpenSSH
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: libqt-devel
 URL: http://www.mandriva.com/
 Source: %name-%version.tar.bz2
+Patch0: %name-0.2-fix-exit-status.patch
 Buildroot: %_tmppath/%name-buildroot
 Requires: openssh-askpass-common
 Provides: openssh-askpass
@@ -24,6 +25,7 @@ Qt version of ssh passphrase dialog.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %qt3dir/bin/qmake qt-ssh-askpass.pro
