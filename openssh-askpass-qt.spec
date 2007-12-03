@@ -26,7 +26,7 @@ Qt version of ssh passphrase dialog.
 %setup -q
 
 %build
-%qt32dir/bin/qmake qt-ssh-askpass.pro
+%qt3dir/bin/qmake qt-ssh-askpass.pro
 
 %make
 
