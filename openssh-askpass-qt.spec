@@ -1,11 +1,11 @@
 Name: openssh-askpass-qt
 Version: 0.2
 Release: %mkrel 2
-Summary: Qt version of ssh auth agent for keychain
+Summary: QT passphrase dialog for OpenSSH
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: libqt-devel
-URL: http://www.mandriva.com
+URL: http://www.mandriva.com/
 Source: %name-%version.tar.bz2
 Buildroot: %_tmppath/%name-buildroot
 Requires: openssh-askpass-common
@@ -14,7 +14,7 @@ Provides: ssh-askpass
 Provides: ssh-extras
 
 %description
-Qt version of ssh auth agent for keychain
+Qt version of ssh passphrase dialog.
 
 %files 
 %defattr(0755,root,root,755)
@@ -26,7 +26,7 @@ Qt version of ssh auth agent for keychain
 %setup -q
 
 %build
-qmake qt-ssh-askpass.pro
+%qt32dir/bin/qmake qt-ssh-askpass.pro
 
 %make
 
