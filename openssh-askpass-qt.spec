@@ -8,7 +8,6 @@ BuildRequires: libqt-devel
 URL: http://www.mandriva.com/
 Source: %name-%version.tar.bz2
 Patch0: %name-0.2-fix-exit-status.patch
-Buildroot: %_tmppath/%name-buildroot
 Requires: openssh-askpass-common
 Provides: openssh-askpass
 Provides: ssh-askpass
