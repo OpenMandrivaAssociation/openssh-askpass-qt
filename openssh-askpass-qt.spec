@@ -1,6 +1,6 @@
 Name: openssh-askpass-qt
 Version: 0.2
-Release: %mkrel 8
+Release: %mkrel 9
 Summary: QT passphrase dialog for OpenSSH
 License: GPL
 Group: Graphical desktop/KDE
