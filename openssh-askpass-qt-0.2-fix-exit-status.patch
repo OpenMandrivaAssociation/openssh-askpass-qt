@@ -1,0 +1,62 @@
+---
+ askpassqt.cpp |    9 	8 +	1 -	0 !
+ askpassqt.h   |    3 	3 +	0 -	0 !
+ main.cpp      |    2 	1 +	1 -	0 !
+ 3 files changed, 12 insertions(+), 2 deletions(-)
+
+Index: openssh-askpass-qt-0.2/askpassqt.cpp
+===================================================================
+--- openssh-askpass-qt-0.2.orig/askpassqt.cpp	2009-08-21 06:20:00.000000000 -0400
++++ openssh-askpass-qt-0.2/askpassqt.cpp	2009-08-21 06:21:37.000000000 -0400
+@@ -19,12 +19,13 @@
+  ***************************************************************************/
+ 
+ #include <cstdio>
++#include <cstdlib>
+ #include <qapplication.h>
+ #include <qlineedit.h>
+ #include "askpassqt.h"
+ 
+ AskPassQt::AskPassQt( QWidget* parent, const char* name, bool modal, WFlags fl )
+-	: AskPassQtBase( parent, name, modal, fl )
++	: AskPassQtBase( parent, name, modal, fl ), status( 1 )
+ {
+ }
+ 
+@@ -33,5 +34,11 @@ AskPassQt::~AskPassQt() { /* NOOP */ }
+ void AskPassQt::okSlot()
+ {
+     puts( lePasswd->text() );
++    status = 0;
+     close();
+ }
++
++void AskPassQt::quitWithStatus()
++{
++    exit(status);
++}
+Index: openssh-askpass-qt-0.2/askpassqt.h
+===================================================================
+--- openssh-askpass-qt-0.2.orig/askpassqt.h	2009-08-21 06:20:00.000000000 -0400
++++ openssh-askpass-qt-0.2/askpassqt.h	2009-08-21 06:20:03.000000000 -0400
+@@ -28,5 +28,8 @@ public:
+     ~AskPassQt();
+ public slots:
+     void okSlot();
++    void quitWithStatus();
++private:
++    int status;
+ };
+ 
+Index: openssh-askpass-qt-0.2/main.cpp
+===================================================================
+--- openssh-askpass-qt-0.2.orig/main.cpp	2009-08-21 06:20:00.000000000 -0400
++++ openssh-askpass-qt-0.2/main.cpp	2009-08-21 06:20:03.000000000 -0400
+@@ -29,6 +29,6 @@ int main( int argc, char ** argv )
+     QApplication a( argc, argv );
+     AskPassQt w;
+     w.show();
+-    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );    
++    a.connect( &a, SIGNAL( lastWindowClosed() ), &w, SLOT( quitWithStatus() ) );    
+     return a.exec();
+ }
