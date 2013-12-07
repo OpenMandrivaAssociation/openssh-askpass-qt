@@ -1,7 +1,7 @@
 Summary:	QT passphrase dialog for OpenSSH
 Name:		openssh-askpass-qt
 Version:	0.2
-Release:	10
+Release:	11
 License:	GPLv2
 Group:		Graphical desktop/KDE
 Url:		http://www.mandriva.com/
