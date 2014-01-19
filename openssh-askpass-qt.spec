@@ -4,7 +4,7 @@ Version:	0.2
 Release:	14
 License:	GPLv2
 Group:		Graphical desktop/KDE
-Url:		http://www.mandriva.com/
+Url:		%{disturl}
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.2-fix-exit-status.patch
 BuildRequires:	pkgconfig(qt-mt)
@@ -12,6 +12,7 @@ Requires:	openssh-askpass-common
 Provides:	openssh-askpass
 Provides:	ssh-askpass
 Provides:	ssh-extras
+Requires(post,postun): update-alternatives
 
 %description
 Qt version of ssh passphrase dialog.
