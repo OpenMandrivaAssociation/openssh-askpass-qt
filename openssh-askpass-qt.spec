@@ -29,7 +29,7 @@ Qt version of ssh passphrase dialog.
 %build
 export QTDIR=%{_prefix}/lib/qt3
 export PATH=$QTDIR/bin:$PATH
-%qt3dir}/bin/qmake qt-ssh-askpass.pro
+%{qt3dir}/bin/qmake qt-ssh-askpass.pro
 
 %make
 
