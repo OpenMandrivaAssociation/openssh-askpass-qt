@@ -24,7 +24,7 @@ Qt version of ssh passphrase dialog.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 export QTDIR=%{_prefix}/lib/qt3
